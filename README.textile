@@ -1,0 +1,120 @@
+h2. What is this?
+
+This is a tutorial for the "Lift":lift web framework.
+
+This is the alpha version of the tutorial, very much a work in progress and subject to change. Unless you're involved in the development of this tutorial, you probably want the "finished" version, which can be cloned from "this (The Lift Tutorial)":lift-tutorial GitHub repository.
+
+h2. What does the tutorial cover?
+
+This tutorial shows you how to develop a basic, yet fully functional, web application with "Lift":lift. You will start with a prototype Lift application, then incrementally add new features to the prototype until the application is complete.
+
+h2. What software do I need to use the tutorial?
+
+* You won't get far without "Git":git, the distributed version control system.
+* You will need the Java SE 6 "JDK (Java SE 6 JDK download)":java6jdk.
+* You will also need "sbt(Simple Build Tool setup)":sbt-setup, the simple build tool.
+
+That's it! All additional dependencies will be downloaded for you by sbt! (So yes, you'll need an Internet connection, too.)
+
+h2. What should I know before I start the tutorial?
+
+* You should be comfortable with HTML (specifically "XHTML":xhtml), and have a basic knowledge of "CSS (w3.org CSS tutorial)":css-tutorial.
+* Later chapters assume some familiarity with "JavaScript (Douglas Crockford's JavaScript page)":jsSurvey, specifically the "jQuery":jquery "AJAX (Mozilla Developer Center)":ajax library.
+* Lift applications are written in the "Scala":scala programming language (as is Lift itself), so prior knowledge of Scala is a must. Seriously, if you don't know Scala already, go "learn (Scala Tutorials and Resources)":scala-tutorials it right now. You'll be glad you did.
+* Experience with another web application "framework (Wikipedia)":web-app-framework, while not strictly necessary, will be helpful in understanding some of the concepts addressed by this tutorial.
+
+In other words, this tutorial is not meant to be a "Web Application Development 101" course, but more of an introduction to Lift for developers familiar with "ASP.NET":asp.net, "PHP":php, "Rails (Ruby on Rails)":rails, or one of the "many (Wikipedia)":java-web-frameworks Java web application frameworks.
+
+h2. How can I get a copy of the tutorial?
+
+Easy. First, install "git":git, if you haven't already. Second, open up a Terminal (Command Prompt in Windows), and enter
+
+bc. git clone git://github.com/mtye/lift-tutorial.git
+
+at the prompt. This will create a copy of the lift-tutorial repository in the current directory. The repository contains both the tutorial and the source code for web application you'll be building.
+
+h2. I've cloned the git repository, but all I see is bunch of source code. Where is the tutorial? 
+
+The tutorial content is actually self-hosted in the web application itself. If that doesn't make sense, it may be easier to demonstrate than explain. @cd@ into the @lift-tutorial@ directory and enter
+
+bc. sbt jetty
+
+at the prompt to build and run the web app.
+
+If sbt is set up "correctly (Simple Build Tool setup)":sbt-setup, this will download many megabytes of dependencies, compile the source code, and start an instance of the "Jetty":jetty web application server. If the last few lines of your terminal output look something like this:
+
+bc. [info] Started SelectChannelConnector@0.0.0.0:8080
+[info] == jetty-run ==
+[info] 
+[info] == jetty ==
+[info] Waiting... (press any key to interrupt)
+
+then you should be able to see the application and tutorial at "http://localhost:8080":localhost8080. The application is at the top of the page and the tutorial content is beneath it. 
+
+If the @sbt jetty@ command didn't work for you, or you can't see the application and tutorial at http://localhost:8080, consult the "troubleshooting":troubleshooting page on the lift-tutorial "wiki":wiki.
+
+h2. How does the tutorial work?
+
+As mentioned previously, the tutorial content is embedded in the application itself. When you first start the Jetty server, you will see a completed version of the application and an explanation of how to use it. This will give you an opportunity to experiment with the application and become familiar with the features that will be developed over the course of the tutorial.
+
+The next step is to "rewind" the tutorial (and application) to its starting point at Chapter One and restart the Jetty server. In Chapter One, the application is just a simple "Hello World" application based on the official Lift prototype application. The tutorial content in Chapter One explains the basic concepts of Lift and the features the prototype application provides "out of the box".
+
+Chapter Two begins the process of incrementally adding features, chapter by chapter, until the application is complete. In the spirit of agile development, each chapter endeavors to add the smallest possible useful feature to the application, hopefully keeping each chapter concise and easily grasped.
+
+The final chapter will bring you back to where you started, with the completed application.
+
+h2. How do I "rewind" and "fast-forward" between chapters?
+
+With "Git":git ! 
+
+Each chapter in the tutorial corresponds to a branch in the lift-tutorial repository, with each branch based upon its predecessor. Thus Chapter One is the initial branch, Chapter Two is a branch of Chapter One, and so on, with the final chapter based on all previous branches. To switch between branches, use the @git checkout@ command:
+
+bc. git checkout chapter01
+
+to go to Chapter One (or any other numbered chapter), and
+
+bc. git checkout master
+
+to return to the final chapter with the completed application. While the tutorial assumes that you're starting at Chapters One and advancing forward one chapter at a time, there's nothing preventing you from jumping forward or backward a few chapters if you feel like it.
+
+Even better, all the source code is versioned in the repository, so you're free to make changes to the application code, secure in the knowledge that you can always return to a known state with a @git reset@ command after you're done experimenting. If you're familiar with Git, you can even create your own branches!
+
+h2. Sounds great! How do I get started?
+
+If you've cloned the Git "repository":lift-tutorial and started the Jetty server with sbt, you already _have_ started! Congratulations! Navigate to "localhost:8080":localhost8080 with your web browser and follow the instructions there.
+
+If not, let me recap:
+
+# Install "git":git, if you don't have it already.
+# Download and setup "sbt":sbt-setup, if you haven't already.
+# Clone the lift-tutorial Git respository: @git clone git://github.com/mtye/lift-tutorial.git@
+# Make lift-tutorial your working directory: @cd lift-tutorial@
+# Start the Jetty web server with sbt: @sbt jetty@
+# When Jetty is done loading, navigate to "localhost:8080":localhost8080 in your web brower.
+
+That's it! If you have any troubles, check out the "troubleshooting":troubleshooting page. Otherwise, have fun learning a little Lift!
+
+[lift]http://liftweb.net/
+[lift-tutorial]http://github.com/mtye/lift-tutorial
+[git]http://git-scm.com
+[java6jdk]http://java.sun.com/javase/downloads/widget/jdk6.jsp
+[sbt-setup]http://code.google.com/p/simple-build-tool/wiki/Setup
+[xhtml]http://www.w3.org/TR/xhtml11/
+[css-tutorial]http://www.w3.org/Style/Examples/011/firstcss
+[jsSurvey]http://www.crockford.com/javascript/javascript.html
+[jquery]http://jquery.com/
+[ajax]https://developer.mozilla.org/en/AJAX/Getting_Started
+[scala]http://www.scala-lang.org/node/25
+[scala-tutorials]http://www.scala-lang.org/node/960
+[web-app-framework]http://en.wikipedia.org/wiki/Web_application_framework
+[asp.net]http://www.asp.net/
+[php]http://php.net
+[rails]http://rubyonrails.org/
+[java-web-frameworks]http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks#Java
+[jetty]http://eclipse.org/jetty/
+[localhost8080]http://localhost:8080
+[troubleshooting]http://wiki.github.com/mtye/lift-tutorial/troubleshooting
+[wiki]http://wiki.github.com/mtye/lift-tutorial
+[lift-prototype]http://github.com/lift/lift_sbt_prototype
+[maven-archetype]http://wiki.liftweb.net/index.php/Archetypes
+[lifty]http://lifty.github.com/Lifty
